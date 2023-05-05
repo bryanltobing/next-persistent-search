@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import useEnhancedEffect from "./useEnhancedEffect";
 
 export interface RouterReadyProps {
   /**
@@ -19,7 +18,7 @@ function RouterReady(props: RouterReadyProps): JSX.Element {
   const [isRouterReady, setIsRouterReady] = useState(false);
   const router = useRouter();
 
-  useEnhancedEffect(() => {
+  useEffect(() => {
     setIsRouterReady(router.isReady);
   }, [router.isReady]);
 
